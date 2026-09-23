@@ -14,3 +14,5 @@ export class UsersController {
     return this.usersService.findById(user.id);
   }
 }
+//un usuario autenticado puede obtener 
+// su contraseña almacenada en la respuesta como hash.

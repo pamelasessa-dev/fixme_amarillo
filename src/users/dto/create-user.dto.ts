@@ -12,8 +12,10 @@ export class CreateUserDto {
   @IsString()
   @MinLength(6)
   password: string;
+//se acepta cualquier valor valido del enum role, incluido ADMIN.
 
-  @IsOptional()
+/*@IsOptional()
   @IsEnum(Role)
   role?: Role;
-}
+*/
+  }
