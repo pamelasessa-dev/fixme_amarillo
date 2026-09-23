@@ -4,9 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
-
 enum Role {
   ADMIN
   USER
@@ -21,7 +19,11 @@ enum EstadoPedido {
 model User {
   id        Int      @id @default(autoincrement())
   name      String
-  email     String
+  email     String   @unique
+/*email     String 
+email no está definido como unique por lo que en userService no se puede usar findUnique
+para encontrar a un usuario por su email "unico".
+*/ 
   password  String
   role      Role     @default(USER)
   createdAt DateTime @default(now())

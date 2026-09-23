@@ -1,5 +1,5 @@
 import { ConflictException, Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcryptjs';
+import  bcrypt from 'bcryptjs';
 import { PrismaService } from '../prisma/prisma.service.js';
 import { CreateUserDto } from './dto/create-user.dto.js';
 
@@ -20,7 +20,7 @@ export class UsersService {
         name: createUserDto.name,
         email: createUserDto.email,
         password: hashedPassword,
-        role: createUserDto.role ?? 'USER',
+        //role: createUserDto.role ?? 'USER',
       },
     });
 
@@ -30,7 +30,7 @@ export class UsersService {
   findByEmail(email: string) {
     return this.prisma.user.findUnique({ where: { email } });
   }
-
+//en findbyIs se estaa devolviendo tambien password
   async findById(id: number) {
     return this.prisma.user.findUnique({ where: { id } });
   }
